@@ -32,7 +32,7 @@ function createSplashScreen() {
 
   const startButton = splashScreen.querySelector(".startBtn");
   startButton.addEventListener("click", startGame);
- return splashScreen
+  return splashScreen
 }
 
 
@@ -43,17 +43,16 @@ function removeSplashScreen() {
 
 function createGameScreen() {
   gameScreen = buildDom(`
-  <main class= "game">
+  <main id= "game">
    <header>
     <div class= "score">
      <span class="type">Score:</span>
      <span class="value"></span>
     </div>
    </header>
-
-   <div class="canvasContainer">
+    <div class= "canvasContainer">   
     <canvas></canvas>
-   </div>
+    </div>
   </main>
  `);
 
@@ -115,7 +114,7 @@ function startGame() {
   removeSplashScreen();
  // removeGameOverScreen();
   //removeWinScreen();
-  createGameScreen();
+  //createGameScreen();
 
   game= new Game();
   game.gameScreen = createGameScreen();
