@@ -24,7 +24,7 @@ class Steak extends Foods {
     this.y = 0 + this.size;
     this.speed = 3;
     this.type = "good";
-    this.score = 10;
+    this.points = 10;
   }
 
   draw() {
@@ -41,7 +41,7 @@ class Pizza extends Foods {
     this.y = 0 + this.size;
     this.speed = 5;
     this.type = "good";
-    this.score = 15;
+    this.points = 15;
   }
 
   draw() {
@@ -57,7 +57,7 @@ class Chips extends Foods {
     this.y = 0 + this.size;
     this.speed = 6;
     this.type = "good";
-    this.score = 20;
+    this.points = 20;
   }
 
   draw() {
@@ -73,7 +73,7 @@ class Brocoli extends Foods {
     this.y = 0 + this.size;
     this.speed = 9;
     this.type = "bad";
-    this.score = -10;
+    this.points = -10;
   }
 
   draw() {

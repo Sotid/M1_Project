@@ -6,7 +6,7 @@ class Player {
     this.ctx = canvas.getContext("2d");;
     this.size = 50;
     this.x = this.canvas.width / 2;
-    this.y = 350;
+    this.y = this.canvas.height / 2
     this.direction = 0;
     this.speed = 3;
   }
@@ -36,5 +36,30 @@ class Player {
     this.ctx.fillRect(this.x, this.y, this.size, this.size);
   }
 
-  didCollide() {}
-}
+  didCollide(food) {
+   const playerLeft = this.x;
+   const playerRight = this.x + this.size;
+   const playerTop = this.y;
+   const playerBottom = this.y + this.size;
+
+   const foodLeft = food.x;
+   const foodRight = food.x + food.size;
+   const foodTop = food.y;
+   const foodBottom = food.y + food.size;
+
+   const collideLeft = foodLeft <= playerRight && foodLeft >= playerLeft;
+   const collideRight =  foodRight >= playerLeft && foodRight <= playerRight;
+   const collideTop = foodBottom >= playerTop && foodBottom <= playerBottom;
+   const collideBottom = foodTop <= playerBottom && foodTop >= playerTop
+   
+   if((collideLeft || collideRight ) && (collideTop || collideBottom)){
+     return true;
+
+   }else{
+     false
+   }
+  }
+
+};
+
+
