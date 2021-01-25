@@ -6,9 +6,9 @@ class Player {
     this.ctx = canvas.getContext("2d");;
     this.size = 50;
     this.x = this.canvas.width / 2;
-    this.y = this.canvas.height / 2
+    this.y = 280
     this.direction = 0;
-    this.speed = 3;
+    this.speed = 4;
   }
 
   setDirection(direction) {
@@ -44,22 +44,26 @@ class Player {
 
    const foodLeft = food.x;
    const foodRight = food.x + food.size;
-   const foodTop = food.y;
+   const foodTop = food.y 
    const foodBottom = food.y + food.size;
 
+   const collideBottom = foodTop <= playerBottom && foodTop >= playerTop;
    const collideLeft = foodLeft <= playerRight && foodLeft >= playerLeft;
    const collideRight =  foodRight >= playerLeft && foodRight <= playerRight;
    const collideTop = foodBottom >= playerTop && foodBottom <= playerBottom;
-   const collideBottom = foodTop <= playerBottom && foodTop >= playerTop
    
-   if((collideLeft || collideRight ) && (collideTop || collideBottom)){
-     return true;
+  if((collideBottom || collideTop ) && (collideRight || collideLeft))
+   {
 
+    return true
+  
    }else{
-     false
+
+    return false;
    }
   }
-
+ 
 };
+
 
 

@@ -1,5 +1,5 @@
 class Foods {
-  constructor(canvas, x, ctx) {
+  constructor(canvas, x) {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d");
     this.x = x;
@@ -8,6 +8,8 @@ class Foods {
   updatePosition() {
     this.y = this.y + this.speed;
   }
+
+  
 
   isInsideScreen() {
     const bottom = this.y + this.size;
@@ -18,66 +20,64 @@ class Foods {
 }
 
 class Steak extends Foods {
-  constructor(canvas, x, ctx) {
-    super(canvas, x, ctx);
+  constructor(canvas, x) {
+    super(canvas, x);
     this.size = 10;
     this.y = 0 + this.size;
     this.speed = 3;
-    this.type = "good";
-    this.points = 10;
+    this.type = "steak";
+    
   }
 
   draw() {
-    this.ctx.fillstyle = "#DC143C";
+    this.ctx.fillStyle= "black"
     this.ctx.fillRect(this.x, this.y, this.size, this.size);
   }
 }
 
 class Pizza extends Foods {
-  constructor(canvas, x, ctx) {
-    super(canvas, x, ctx);
-
+  constructor(canvas, x) {
+    super(canvas, x);
     this.size = 25;
     this.y = 0 + this.size;
     this.speed = 5;
-    this.type = "good";
-    this.points = 15;
+    this.type = "pizza";
   }
 
   draw() {
-    this.ctx.fillstyle = "#FF00FF";
+    this.ctx.fillStyle = "#FF00FF";
     this.ctx.fillRect(this.x, this.y, this.size, this.size);
   }
 }
 
 class Chips extends Foods {
-  constructor(canvas, x, ctx) {
-    super(canvas, x, ctx);
+  constructor(canvas, x) {
+    super(canvas, x);
     this.size = 15;
     this.y = 0 + this.size;
     this.speed = 6;
-    this.type = "good";
-    this.points = 20;
+    this.type = "chips";
   }
 
   draw() {
-    this.ctx.fillstyle = "#FFD700";
+    this.ctx.fillStyle = "#FFD700";
     this.ctx.fillRect(this.x, this.y, this.size, this.size);
   }
 }
 
 class Brocoli extends Foods {
-  constructor(canvas, x, ctx) {
-    super(canvas, x, ctx);
+  constructor(canvas, x) {
+    super(canvas, x);
     this.size = 20;
     this.y = 0 + this.size;
     this.speed = 9;
-    this.type = "bad";
-    this.points = -10;
+    this.type = "brocoli";
   }
 
   draw() {
-    this.ctx.fillstyle = "#5F9EA0";
+    this.ctx.fillStyle = "red";
     this.ctx.fillRect(this.x, this.y, this.size, this.size);
   }
 }
+
+

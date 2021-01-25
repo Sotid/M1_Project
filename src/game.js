@@ -9,20 +9,21 @@ class Game {
     this.gameIsOver = false;
     this.gameIsWon = false;
     this.gameScreen = undefined;
-    this.score = 1;
+    this.score = 0;
     this.scoreElement = undefined;
   }
 
   start() {
-    this.canvasContainer = gameScreen.querySelector(".canvasContainer");
-    this.canvas = this.gameScreen.querySelector("canvas");
+    this.canvasContainer = document.querySelector(".canvasContainer");
+    this.canvas = document.querySelector("canvas");
     this.ctx = this.canvas.getContext("2d");
     this.containerWidth = this.canvasContainer.clientWidth;
     this.containerHeight = this.canvasContainer.clientHeight;
     this.canvas.setAttribute("width", this.containerWidth);
     this.canvas.setAttribute("height", this.containerHeight);
 
-    this.scoreElement = this.gameScreen.querySelector(".score .value");
+    this.scoreElement = document.querySelector(".score .value");
+    this.scoreElement.innerHTML = this.score;
 
     this.player = new Player(this.canvas);
     this.player.draw();
@@ -44,6 +45,7 @@ class Game {
 
   startLoop() {
     const loop = function () {
+      this.updateScore();
       // Foods
       if (Math.random() > 0.96) {
         let randomSteak = this.canvas.width * Math.random();
@@ -69,7 +71,14 @@ class Game {
         this.foods.push(newBrocoli);
       }
 
-      this.foods = this.foods.filter(function (food) {
+
+      // Colissions
+      this.checkFood();
+
+      this.player.screenCollisions();
+
+      // Moving food
+      this.foods = this.foods.filter((food) => {
         food.updatePosition();
 
         return food.isInsideScreen;
@@ -77,8 +86,6 @@ class Game {
 
       //Player
       this.player.setDirection();
-
-      this.player.screenCollisions();
 
       //Draw
 
@@ -90,27 +97,61 @@ class Game {
         food.draw();
       });
 
-      // Stop Game
-      if (!this.gameIsOver || !this.gameIsWon) {
+      // Stop Game if won
+      if (!this.gameIsWon && !this.gameIsOver) {
         window.requestAnimationFrame(loop);
       }
     }.bind(this);
+    
 
     // Start loop
-    loop();
+    window.requestAnimationFrame(loop);
   }
 
   /////ADD IT IN THE START LOOP AFTER THE MATH:RANDOM
-  //foodGrabbed() {
-  // //   this.foods.forEach(function(food){
-  // //     if(this.player.didCollide(food)){
-  // //       food.y = 0 -food.size;
-  // //     }
-  //  };
+ checkFood(food) {
+ this.foods.forEach(function (food) {
+      if (this.player.didCollide(food)) {
+      food.y = 0 - food.size;
+  
 
-  gameOverLoose() {}
+    if ((food.type === "steak")) {
+      this.score += 3;
+    }else if ((food.type === "pizza")) {
+      this.score += 5;
+    } else if ((food.type === "chips")) {
+      this.score += 7;
+    }else if ((food.type === "brocoli")) {
+      this.score -= 5;
+    }
+    
+    if(this.score > 50){
+       this.gameOverWin();
+    }
+    
+    if(this.score < 0){
+      this.gameOverLoose();
+    }
 
-  gameOverWin() {}
+  }
 
-  updateScore() {}
+    }, this);
+  }
+
+   gameOverLoose() {
+   this.gameIsOver = true;
+   console.log("no")
+   endGameLoose();
+   }
+
+   gameOverWin() {
+   this.gameIsWon = true;
+   console.log("yes")
+   endGameWin();
+    
+   }
+
+  updateScore() {
+    this.scoreElement.textContent = this.score;
+  }
 }

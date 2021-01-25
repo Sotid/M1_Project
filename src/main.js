@@ -6,16 +6,15 @@ let gameScreen;
 let gameOverScreen;
 let winScreen;
 
-
 function buildDom(htmlString) {
   const div = document.createElement("div");
   div.innerHTML = htmlString;
-  let result= div.children[0];
-  return result
+  let result = div.children[0];
+  return result;
 }
 
 function createSplashScreen() {
-   splashScreen = buildDom(`
+  splashScreen = buildDom(`
   <main class="splash">
   <h1>Mr. Miyagi's feast</h1>
    <button class= "startBtn">I am hungry!</button>
@@ -32,14 +31,12 @@ function createSplashScreen() {
 
   const startButton = splashScreen.querySelector(".startBtn");
   startButton.addEventListener("click", startGame);
-  return splashScreen
+  return splashScreen;
 }
-
 
 function removeSplashScreen() {
   splashScreen.remove();
-};
-
+}
 
 function createGameScreen() {
   gameScreen = buildDom(`
@@ -64,67 +61,72 @@ function removeGameScreen() {
   gameScreen.remove();
 }
 
-// function createGameOverScreen() {
-//   gameOverScreen = buildDom(`
-//    <main>
-//       <img src"" />
-//       <p>I hate brocoli!</p>
-//       <button class="restartBtn">Play Again</button>
-//    </main>
+function createGameOverScreen() {
+  let gameOverScreen = buildDom(`
+   <main>
+      <img src"" />
+      <p>I hate brocoli!</p>
+      <button class="restartBtn">Play Again</button>
+   </main>
 
-//   `);
+  `);
 
-//   const restartButton = gameOverScreen.querySelector(".restartBtn");
-//   restartButton.addEventListener("click", startGame);
+  const restartButton = gameOverScreen.querySelector(".restartBtn");
+  restartButton.addEventListener("click", startGame);
 
-//   document.body.appendChild(gameOverScreen);
-// }
+  document.body.appendChild(gameOverScreen);
+}
 
 // function gameOverScreenRemove() {
 //   gameOverScreen.remove();
 // }
 
-// function createWinScreen() {
-//   let phrases = ["Hello", "Good boy!", "Happy","Next","love"];
-//   let random = phrases[Math.floor(phrases.length * Math.random())];
+function createWinScreen() {
+  let phrases = ["Hello", "Good boy!", "Happy", "Next", "love"];
+  let random = phrases[Math.floor(phrases.length * Math.random())];
 
-//   winScreen = buildDom(`
-//    <main>
-//       <img src"" />
-//       <span class="randomPhrase"></span>
-//       <button id= "restartWinBtn">Play Again</button>
-//    </main>
+  winScreen = buildDom(`
+   <main>
+      <img src"" />
+      <span class="randomPhrase"></span>
+      <button id= "restartWinBtn">Play Again</button>
+   </main>
 
-//   `);
+  `);
 
-//    let randomize= winScreen.querySelector(".randomPhrase");
-//    randomize.innerHTML=random;
+  let randomize = winScreen.querySelector(".randomPhrase");
+  randomize.innerHTML = random;
 
-//   const restartWinButton = winScreen.querySelector("#restartWinBtn");
-//   restartWinButton.addEventListener("click", startGame);
+  const restartWinButton = winScreen.querySelector("#restartWinBtn");
+  restartWinButton.addEventListener("click", startGame);
 
-//   document.body.appendChild(winScreen);
-// }
+  document.body.appendChild(winScreen);
+  return winScreen;
+}
 
-// function removeWinScreen() {
+//  function removeWinScreen(){
 //   winScreen.remove();
-// }
+//  }
 
 function startGame() {
   removeSplashScreen();
- // removeGameOverScreen();
   //removeWinScreen();
-  //createGameScreen();
+  //gameOverScreenRemove();
+  createGameScreen();
 
-  game= new Game();
+  game = new Game();
   game.gameScreen = createGameScreen();
   game.start();
 }
 
-function endGame() {
+function endGameWin() {
   removeGameScreen();
- // createGameOverScreen();
-  //createWinScreen();
+  createWinScreen();
+}
+
+function endGameLoose() {
+  removeGameScreen();
+  createGameOverScreen();
 }
 
 window.addEventListener("load", createSplashScreen);
