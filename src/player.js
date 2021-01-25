@@ -3,10 +3,10 @@
 class Player {
   constructor(canvas) {
     this.canvas = canvas;
-    this.ctx = canvas.getContext("2d");;
-    this.size = 50;
+    this.ctx = canvas.getContext("2d");
+    this.size = 100;
     this.x = this.canvas.width / 2;
-    this.y = 280
+    this.y = this.canvas.height / 2;
     this.direction = 0;
     this.speed = 4;
   }
@@ -32,38 +32,31 @@ class Player {
   }
 
   draw() {
-    this.ctx.fillStyle = "green";
-    this.ctx.fillRect(this.x, this.y, this.size, this.size);
+    this.img = new Image();
+    this.img.src = "../Images/Assets/samson-sprite-removebg-preview.png";
+    this.ctx.drawImage(this.img, this.x, this.y, this.size, this.size);
   }
 
   didCollide(food) {
-   const playerLeft = this.x;
-   const playerRight = this.x + this.size;
-   const playerTop = this.y;
-   const playerBottom = this.y + this.size;
+    const playerLeft = this.x;
+    const playerRight = this.x + this.size;
+    const playerTop = this.y;
+    const playerBottom = this.y + this.size;
 
-   const foodLeft = food.x;
-   const foodRight = food.x + food.size;
-   const foodTop = food.y 
-   const foodBottom = food.y + food.size;
+    const foodLeft = food.x;
+    const foodRight = food.x + food.size;
+    const foodTop = food.y;
+    const foodBottom = food.y + food.size;
 
-   const collideBottom = foodTop <= playerBottom && foodTop >= playerTop;
-   const collideLeft = foodLeft <= playerRight && foodLeft >= playerLeft;
-   const collideRight =  foodRight >= playerLeft && foodRight <= playerRight;
-   const collideTop = foodBottom >= playerTop && foodBottom <= playerBottom;
-   
-  if((collideBottom || collideTop ) && (collideRight || collideLeft))
-   {
+    const collideBottom = foodTop <= playerBottom && foodTop >= playerTop;
+    const collideLeft = foodLeft <= playerRight && foodLeft >= playerLeft;
+    const collideRight = foodRight >= playerLeft && foodRight <= playerRight;
+    const collideTop = foodBottom >= playerTop && foodBottom <= playerBottom;
 
-    return true
-  
-   }else{
-
-    return false;
-   }
+    if ((collideBottom || collideTop) && (collideRight || collideLeft)) {
+      return true;
+    } else {
+      return false;
+    }
   }
- 
-};
-
-
-
+}

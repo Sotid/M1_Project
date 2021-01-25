@@ -21,7 +21,7 @@ function createSplashScreen() {
   <section class="controls">
    <article>
     <p>Mr. Miyagi loves food. He never stops eating.
-     Help him fetch all the food that he likes until he is full and happy.
+     Use the <span> right and left arrow</span> to help him fetch all the food that he likes until he is full and happy.
      But watch out for the brocoli. He hates it!
    </article>
   </main>
