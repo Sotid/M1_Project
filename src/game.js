@@ -13,8 +13,8 @@ class Game {
     this.timer = 0;
     this.scoreElement = undefined;
     this.timerElement = undefined;
-    this.gameIsWonSound = new Audio("../Images/Sounds/GameOverWin.wav");
-    this.gameIsLostSound = new Audio("../Images/Sounds/GameOverLoose.wav");
+    this.gameIsWonSound = new Audio("Images/Sounds/GameOverWin.wav");
+    this.gameIsLostSound = new Audio("Images/Sounds/GameOverLoose.wav");
   }
 
   start() {
@@ -145,13 +145,11 @@ class Game {
 
   gameOverLoose() {
     this.gameIsOver = true;
-    console.log("no");
     endGameLoose();
   }
 
   gameOverWin() {
     this.gameIsWon = true;
-    console.log("yes");
     endGameWin();
   }
 

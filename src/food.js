@@ -31,7 +31,7 @@ class Steak extends Foods {
 
   draw() {
     this.img = new Image();
-    this.img.src = "../Images/Assets/meat.png";
+    this.img.src = "Images/Assets/meat.png";
     this.ctx.drawImage(this.img,this.x, this.y, this.size, this.size);
   }
 }
@@ -47,7 +47,7 @@ class Pizza extends Foods {
 
   draw() {
     this.img = new Image();
-    this.img.src = "../Images/Assets/pizza.png";
+    this.img.src = "Images/Assets/pizza.png";
     this.ctx.drawImage(this.img,this.x, this.y, this.size, this.size);
   }
 }
@@ -63,7 +63,7 @@ class Chips extends Foods {
 
   draw() {
     this.img = new Image();
-    this.img.src = "../Images/Assets/potato-chips.png";
+    this.img.src = "Images/Assets/potato-chips.png";
     this.ctx.drawImage(this.img,this.x, this.y, this.size, this.size);
   }
 }
@@ -75,12 +75,12 @@ class Brocoli extends Foods {
     this.y = 0 + this.size;
     this.speed = 9;
     this.type = "brocoli";
-    this.brocoliSound = new Audio ("../Images/Sounds/HitBrocoli.wav")
+    this.brocoliSound = new Audio ("Images/Sounds/HitBrocoli.wav")
   }
 
   draw() {
     this.img = new Image();
-    this.img.src = "../Images/Assets/brocoli.png";
+    this.img.src = "Images/Assets/brocoli.png";
     this.ctx.drawImage(this.img,this.x, this.y, this.size, this.size);
   }
 }
