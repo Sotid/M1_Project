@@ -46,7 +46,7 @@ function createGameScreen() {
      <span class="type">Score:</span>
      <span class="value"></span>
     </div>
-    <div>
+    <div class="timer">
      <span class="typeTimer">Time:</span>
      <span class="valueTimer"></span>
     </div>

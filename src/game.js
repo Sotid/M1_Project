@@ -10,7 +10,9 @@ class Game {
     this.gameIsWon = false;
     this.gameScreen = undefined;
     this.score = 0;
+    this.timer = 0
     this.scoreElement = undefined;
+    this.timerElement = undefined;
     this.gameIsWonSound= new Audio("../Images/Sounds/GameOverWin.wav");
     this.gameIsLostSound= new Audio("../Images/Sounds/GameOverLoose.wav")
   }
@@ -25,8 +27,8 @@ class Game {
     this.canvas.setAttribute("height", this.containerHeight);
 
     this.scoreElement = document.querySelector(".score .value");
-    this.scoreElement.innerHTML = this.score;
-
+   
+    this.timerElement = document.querySelector(".timer .valueTimer");
     this.player = new Player(this.canvas);
     this.player.draw();
 
@@ -45,9 +47,13 @@ class Game {
     this.startLoop();
   }
 
+
+
   startLoop() {
-    const loop = function () {
-      this.updateScore();
+  const loop = function () {
+    this.updateScore();
+
+
       // Foods
       if (Math.random() > 0.96) {
         let randomSteak = this.canvas.width * Math.random();
@@ -158,4 +164,15 @@ class Game {
   updateScore() {
     this.scoreElement.textContent = this.score;
   }
+
+
+
+
+
+
+
+
+
+
+
 }
