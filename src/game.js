@@ -159,5 +159,3 @@ class Game {
     this.scoreElement.textContent = this.score;
   }
 }
-
-window.addEventListener("load", createGameScreen);
