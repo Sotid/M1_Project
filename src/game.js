@@ -11,6 +11,8 @@ class Game {
     this.gameScreen = undefined;
     this.score = 0;
     this.scoreElement = undefined;
+    this.gameIsWonSound= new Audio("../Images/Sounds/GameOverWin.wav");
+    this.gameIsLostSound= new Audio("../Images/Sounds/GameOverLoose.wav")
   }
 
   start() {
@@ -71,7 +73,6 @@ class Game {
         this.foods.push(newBrocoli);
       }
 
-
       // Colissions
       this.checkFood();
 
@@ -102,53 +103,56 @@ class Game {
         window.requestAnimationFrame(loop);
       }
     }.bind(this);
-    
 
     // Start loop
     window.requestAnimationFrame(loop);
   }
 
   /////ADD IT IN THE START LOOP AFTER THE MATH:RANDOM
- checkFood(food) {
- this.foods.forEach(function (food) {
+  checkFood(food) {
+    this.foods.forEach(function (food) {
       if (this.player.didCollide(food)) {
-      food.y = 0 - food.size;
-  
+        food.y = 0 - food.size;
 
-    if ((food.type === "steak")) {
-      this.score += 3;
-    }else if ((food.type === "pizza")) {
-      this.score += 5;
-    } else if ((food.type === "chips")) {
-      this.score += 7;
-    }else if ((food.type === "brocoli")) {
-      this.score -= 5;
-    }
-    
-    if(this.score > 50){
-       this.gameOverWin();
-    }
-    
-    if(this.score < 0){
-      this.gameOverLoose();
-    }
+        if (food.type === "steak") {
+          this.score += 1;
+        } else if (food.type === "pizza") {
+          this.score += 2;
+        } else if (food.type === "chips") {
+          this.score += 4;
+        } else if (food.type === "brocoli") {
+          this.score -= 4;
+          food.brocoliSound.play();
+        }
 
-  }
+        if (this.score > 100) {
+          this.gameOverWin();
+          this.gameIsWon = true;
+          this.gameIsWonSound.play();
+         
+        }
 
+        if (this.score < 0) {
+          this.gameIsOver = true;
+          this.gameOverLoose();
+          this.gameIsLostSound.play();
+          
+        }
+      }
     }, this);
   }
 
-   gameOverLoose() {
+  gameOverLoose() {
    this.gameIsOver = true;
    console.log("no")
    endGameLoose();
-   }
+    }
 
    gameOverWin() {
    this.gameIsWon = true;
    console.log("yes")
    endGameWin();
-    
+
    }
 
   updateScore() {

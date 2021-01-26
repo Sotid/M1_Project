@@ -59,9 +59,9 @@ canvas {
   text-align: center;
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  margin: 0px;
   justify-content: center;
-  background-color: darkcyan;
+  background-color: rgb(147, 211, 211);
 }
 
 /* #game header {
@@ -73,12 +73,14 @@ canvas {
 .type {
   font-weight: bold;
   font-size: 2em;
+  
 }
 
 #game .value {
   font-style: italic;
   font-weight: bold;
   font-size: 1.5em;
+
   
 }
 /* 

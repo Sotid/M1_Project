@@ -16,7 +16,7 @@ function buildDom(htmlString) {
 function createSplashScreen() {
   splashScreen = buildDom(`
   <main class="splash">
-  <h1>Mr. Miyagi's feast</h1>
+  <h1>Mr. Miyagi's dream</h1>
    <button class= "startBtn">I am hungry!</button>
   <section class="controls">
    <article>
@@ -46,6 +46,10 @@ function createGameScreen() {
      <span class="type">Score:</span>
      <span class="value"></span>
     </div>
+    <div>
+     <span class="typeTimer">Time:</span>
+     <span class="valueTimer"></span>
+    </div>
    </header>
     <div class= "canvasContainer">   
     <canvas></canvas>
@@ -62,24 +66,25 @@ function removeGameScreen() {
 }
 
 function createGameOverScreen() {
-  let gameOverScreen = buildDom(`
+  gameOverScreen = buildDom(`
    <main>
       <img src"" />
       <p>I hate brocoli!</p>
-      <button class="restartBtn">Play Again</button>
+      <button class="restartBtnLoose">Play Again</button>
    </main>
 
   `);
 
-  const restartButton = gameOverScreen.querySelector(".restartBtn");
-  restartButton.addEventListener("click", startGame);
+  const restartButton = gameOverScreen.querySelector(".restartBtnLoose");
+  restartButton.addEventListener("click", restartGameOverLoose);
 
   document.body.appendChild(gameOverScreen);
+  return gameOverScreen;
 }
 
-// function gameOverScreenRemove() {
-//   gameOverScreen.remove();
-// }
+function gameOverScreenRemove() {
+  gameOverScreen.remove();
+}
 
 function createWinScreen() {
   let phrases = ["Hello", "Good boy!", "Happy", "Next", "love"];
@@ -98,25 +103,43 @@ function createWinScreen() {
   randomize.innerHTML = random;
 
   const restartWinButton = winScreen.querySelector("#restartWinBtn");
-  restartWinButton.addEventListener("click", startGame);
+  restartWinButton.addEventListener("click", restartGameWin);
 
   document.body.appendChild(winScreen);
   return winScreen;
 }
 
-//  function removeWinScreen(){
-//   winScreen.remove();
-//  }
+function removeWinScreen() {
+  winScreen.remove();
+}
 
 function startGame() {
   removeSplashScreen();
+  createGameScreen();
   //removeWinScreen();
   //gameOverScreenRemove();
-  createGameScreen();
 
   game = new Game();
-  game.gameScreen = createGameScreen();
+  //game.gameScreen = createGameScreen();
   game.start();
+}
+
+function restartGameOverLoose() {
+  if (gameOverScreen) {
+    gameOverScreenRemove();
+    game = new Game();
+    game.gameScreen = createGameScreen();
+    game.start();
+  }
+}
+
+function restartGameWin() {
+  if (winScreen) {
+    removeWinScreen();
+    game = new Game();
+    game.gameScreen = createGameScreen();
+    game.start();
+  }
 }
 
 function endGameWin() {

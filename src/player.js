@@ -17,6 +17,7 @@ class Player {
     } else if (direction === "left") {
       this.direction = -1;
     }
+    console.log(this.direction);
   }
 
   screenCollisions() {
@@ -34,6 +35,17 @@ class Player {
   draw() {
     this.img = new Image();
     this.img.src = "../Images/Assets/samson-sprite-removebg-preview.png";
+
+    this.playerRight =
+      "../Images/Assets/samson-sprite_right-removebg-preview.png";
+    this.playerLeft = "../Images/Assets/samson-sprite-removebg-preview.png";
+
+    if (this.direction === 1) {
+      this.img.src = this.playerRight;
+    } else if (this.direction === -1) {
+      this.img.src = this.playerLeft;
+    }
+
     this.ctx.drawImage(this.img, this.x, this.y, this.size, this.size);
   }
 

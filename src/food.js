@@ -75,6 +75,7 @@ class Brocoli extends Foods {
     this.y = 0 + this.size;
     this.speed = 9;
     this.type = "brocoli";
+    this.brocoliSound = new Audio ("../Images/Sounds/HitBrocoli.wav")
   }
 
   draw() {
