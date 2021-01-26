@@ -10,11 +10,11 @@ class Game {
     this.gameIsWon = false;
     this.gameScreen = undefined;
     this.score = 0;
-    this.timer = 0
+    this.timer = 0;
     this.scoreElement = undefined;
     this.timerElement = undefined;
-    this.gameIsWonSound= new Audio("../Images/Sounds/GameOverWin.wav");
-    this.gameIsLostSound= new Audio("../Images/Sounds/GameOverLoose.wav")
+    this.gameIsWonSound = new Audio("../Images/Sounds/GameOverWin.wav");
+    this.gameIsLostSound = new Audio("../Images/Sounds/GameOverLoose.wav");
   }
 
   start() {
@@ -27,7 +27,7 @@ class Game {
     this.canvas.setAttribute("height", this.containerHeight);
 
     this.scoreElement = document.querySelector(".score .value");
-   
+
     this.timerElement = document.querySelector(".timer .valueTimer");
     this.player = new Player(this.canvas);
     this.player.draw();
@@ -47,12 +47,9 @@ class Game {
     this.startLoop();
   }
 
-
-
   startLoop() {
-  const loop = function () {
-    this.updateScore();
-
+    const loop = function () {
+      this.updateScore();
 
       // Foods
       if (Math.random() > 0.96) {
@@ -135,44 +132,32 @@ class Game {
           this.gameOverWin();
           this.gameIsWon = true;
           this.gameIsWonSound.play();
-         
         }
 
         if (this.score < 0) {
           this.gameIsOver = true;
           this.gameOverLoose();
           this.gameIsLostSound.play();
-          
         }
       }
     }, this);
   }
 
   gameOverLoose() {
-   this.gameIsOver = true;
-   console.log("no")
-   endGameLoose();
-    }
+    this.gameIsOver = true;
+    console.log("no");
+    endGameLoose();
+  }
 
-   gameOverWin() {
-   this.gameIsWon = true;
-   console.log("yes")
-   endGameWin();
-
-   }
+  gameOverWin() {
+    this.gameIsWon = true;
+    console.log("yes");
+    endGameWin();
+  }
 
   updateScore() {
     this.scoreElement.textContent = this.score;
   }
-
-
-
-
-
-
-
-
-
-
-
 }
+
+window.addEventListener("load", createGameScreen);
