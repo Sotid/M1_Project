@@ -11,6 +11,7 @@ class Game {
     this.gameScreen = undefined;
     this.score = 0;
     this.timer = 0;
+    this.timerSeconds = 0;
     this.scoreElement = undefined;
     this.timerElement = undefined;
     this.gameIsWonSound = new Audio("Images/Sounds/GameOverWin.wav");
@@ -50,6 +51,7 @@ class Game {
   startLoop() {
     const loop = function () {
       this.updateScore();
+      this.printTime();
 
       // Foods
       if (Math.random() > 0.96) {
@@ -111,7 +113,6 @@ class Game {
     window.requestAnimationFrame(loop);
   }
 
-  /////ADD IT IN THE START LOOP AFTER THE MATH:RANDOM
   checkFood(food) {
     this.foods.forEach(function (food) {
       if (this.player.didCollide(food)) {
@@ -128,7 +129,7 @@ class Game {
           food.brocoliSound.play();
         }
 
-        if (this.score > 100) {
+        if (this.score > 10) {
           this.gameOverWin();
           this.gameIsWon = true;
           this.gameIsWonSound.play();
@@ -155,5 +156,16 @@ class Game {
 
   updateScore() {
     this.scoreElement.textContent = this.score;
+  }
+
+  printTime() {
+    setInterval(() => {
+      if (this.timerSeconds <= 0) {
+        clearInterval((this.timerSeconds = 0));
+      }
+      this.timerElement.innerHTML = this.timerSeconds;
+      this.timerSeconds += 1;
+    }, 1000);
+    console.log(this.timer);
   }
 }

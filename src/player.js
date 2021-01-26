@@ -4,9 +4,9 @@ class Player {
   constructor(canvas) {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d");
-    this.size = 100;
+    this.size = 130;
     this.x = this.canvas.width / 2;
-    this.y = this.canvas.height / 2;
+    this.y = 540;
     this.direction = 0;
     this.speed = 4;
   }
@@ -33,11 +33,11 @@ class Player {
 
   draw() {
     this.img = new Image();
-    this.img.src = "Images/Assets/samson-sprite-removebg-preview.png";
+    this.img.src = "/Images/Assets/Left.png";
 
     this.playerRight =
-      "Images/Assets/samson-sprite_right-removebg-preview.png";
-    this.playerLeft = "Images/Assets/samson-sprite-removebg-preview.png";
+      "/Images/Assets/Right.png";
+    this.playerLeft = "/Images/Assets/Left.png";
 
     if (this.direction === 1) {
       this.img.src = this.playerRight;

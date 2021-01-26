@@ -67,10 +67,9 @@ function removeGameScreen() {
 
 function createGameOverScreen() {
   gameOverScreen = buildDom(`
-   <main>
-      <img src"" />
-      <p>I hate brocoli!</p>
-      <button class="restartBtnLoose">Play Again</button>
+   <main class="gameOverScreen">
+      <img src= "/Images/Background/—Pngtree—color pixel gameover game over_5525912.png" /img>
+      <button class="restartBtnLoose"><span>Play</span> Again</button>
    </main>
 
   `);
@@ -87,20 +86,20 @@ function gameOverScreenRemove() {
 }
 
 function createWinScreen() {
-  let phrases = ["Hello", "Good boy!", "Happy", "Next", "love"];
-  let random = phrases[Math.floor(phrases.length * Math.random())];
+ // let phrases = ["Hello", "Good boy!", "Happy", "Next", "love"];
+  //let random = phrases[Math.floor(phrases.length * Math.random())];
 
   winScreen = buildDom(`
-   <main>
-      <img src"" />
+   <main class= "winScreen" >
       <span class="randomPhrase"></span>
-      <button id= "restartWinBtn">Play Again</button>
+      <img src= "/Images/Background/145-1457337_game-over-you-win-hd-png-download.jpeg" /img">
+      <button id= "restartWinBtn">Play <span>Again</span></button>
    </main>
 
   `);
 
-  let randomize = winScreen.querySelector(".randomPhrase");
-  randomize.innerHTML = random;
+  //let randomize = winScreen.querySelector(".randomPhrase");
+  //randomize.innerHTML = random;
 
   const restartWinButton = winScreen.querySelector("#restartWinBtn");
   restartWinButton.addEventListener("click", restartGameWin);
@@ -116,11 +115,9 @@ function removeWinScreen() {
 function startGame() {
   removeSplashScreen();
   createGameScreen();
-  //removeWinScreen();
-  //gameOverScreenRemove();
 
-  game = new Game();
-  //game.gameScreen = createGameScreen();
+
+  game = new Game()
   game.start();
 }
 
