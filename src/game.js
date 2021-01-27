@@ -16,6 +16,7 @@ class Game {
     this.timerElement = undefined;
     this.gameIsWonSound = new Audio("Images/Sounds/GameOverWin.wav");
     this.gameIsLostSound = new Audio("Images/Sounds/GameOverLoose.wav");
+    
   }
 
   start() {
@@ -30,6 +31,7 @@ class Game {
     this.scoreElement = document.querySelector(".score .value");
 
     this.timerElement = document.querySelector(".timer .valueTimer");
+    this.timer= this.timerElement
     this.player = new Player(this.canvas);
     this.player.draw();
 
@@ -50,8 +52,9 @@ class Game {
 
   startLoop() {
     const loop = function () {
+      
       this.updateScore();
-      this.printTime();
+      //this.printTime()
 
       // Foods
       if (Math.random() > 0.96) {
@@ -129,7 +132,7 @@ class Game {
           food.brocoliSound.play();
         }
 
-        if (this.score > 10) {
+        if (this.score > 100) {
           this.gameOverWin();
           this.gameIsWon = true;
           this.gameIsWonSound.play();
@@ -158,14 +161,28 @@ class Game {
     this.scoreElement.textContent = this.score;
   }
 
-  printTime() {
-    setInterval(() => {
-      if (this.timerSeconds <= 0) {
-        clearInterval((this.timerSeconds = 0));
-      }
-      this.timerElement.innerHTML = this.timerSeconds;
-      this.timerSeconds += 1;
-    }, 1000);
-    console.log(this.timer);
-  }
+//   printTime() {
+//     //setInterval( this.timer -= 1,1000)
+//     let timeLeft = 30;
+//     this.timerElement = document.querySelector(".timer .valueTimer");
+    
+    
+    
+//     function countdown() {
+//       if (timeLeft == -1) {
+//         clearTimeout(timerId);
+     
+//       } else {
+//         this.timerElement.innerHTML = timeLeft;
+//         timeLeft--;
+//       }
+//       let bound= countdown.bind(this.timerElement) 
+// this.timerElement= setInterval(bound(), 1000);
+
+//     }
+   
+
+
+//   }
+
 }

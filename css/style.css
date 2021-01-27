@@ -48,7 +48,7 @@ canvas {
   height: 94vh;
   border: 2px solid rgb(81, 143, 123);
   display: flex;
-  background-image: url("/Images/Background/colorful-forest-game-background.png");
+  background-image: url("/Images/Background/gameBackground.png");
   background-repeat: repeat;
   background-size: auto 100%;
 }
@@ -100,7 +100,7 @@ h1 {
 
 .splash::after {
   content: "";
-  background: url(/Images/Background/colorful-forest-game-background.png);
+  background: url("../Images/Background/gameBackground.png");
   opacity: 0.4;
   top: 0;
   left: 0;
@@ -152,7 +152,7 @@ h1 {
 
 .gameOverScreen::after {
   content: "";
-  background: url(/Images/Background/colorful-forest-game-background.png);
+  background: url("../Images/Background/gameBackground.png");
   opacity: 0.4;
   top: 0;
   left: 0;
@@ -191,13 +191,13 @@ h1 {
 }
 
 .winScreen img {
-  width: 45%;
+  width: 40%;
   height: 170px;
   display: block;
   margin-left: auto;
   margin-top: 150px;
   margin-right: auto;
-  opacity: 0.7;
+  opacity: 0.9;
   border-radius: 15px;
 }
 
@@ -229,7 +229,7 @@ h1 {
 
 .winScreen::after {
   content: "";
-  background: url(/Images/Background/colorful-forest-game-background.png);
+  background: url("/Images/Background/gameBackground.png");
   opacity: 0.4;
   top: 0;
   left: 0;

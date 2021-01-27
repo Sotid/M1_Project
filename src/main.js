@@ -14,6 +14,7 @@ function buildDom(htmlString) {
 }
 
 function createSplashScreen() {
+  
   splashScreen = buildDom(`
   <main class="splash">
   <h1>Mr. Miyagi's dream</h1>
@@ -92,7 +93,7 @@ function createWinScreen() {
   winScreen = buildDom(`
    <main class= "winScreen" >
       <span class="randomPhrase"></span>
-      <img src= "/Images/Background/145-1457337_game-over-you-win-hd-png-download.jpeg" /img">
+      <img src= "../Images/Background/youWon-removebg-preview.png">
       <button id= "restartWinBtn">Play <span>Again</span></button>
    </main>
 
