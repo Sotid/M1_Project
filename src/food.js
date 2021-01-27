@@ -22,7 +22,7 @@ class Foods {
 class Steak extends Foods {
   constructor(canvas, x) {
     super(canvas, x);
-    this.size = 40;
+    this.size = 30;
     this.y = 0 + this.size;
     this.speed = 3;
     this.type = "steak";
@@ -39,7 +39,7 @@ class Steak extends Foods {
 class Pizza extends Foods {
   constructor(canvas, x) {
     super(canvas, x);
-    this.size = 45;
+    this.size = 40;
     this.y = 0 + this.size;
     this.speed = 5;
     this.type = "pizza";

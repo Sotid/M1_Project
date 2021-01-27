@@ -14,9 +14,11 @@ function buildDom(htmlString) {
 }
 
 function createSplashScreen() {
-  
   splashScreen = buildDom(`
   <main class="splash">
+  <audio autoplay="true">
+	<source src="/Images/Sounds/Insert-Quarter.mp3">
+</audio>
   <h1>Mr. Miyagi's dream</h1>
    <button class= "startBtn">I am hungry!</button>
   <section class="controls">
@@ -46,6 +48,7 @@ function createGameScreen() {
     <div class= "score">
      <span class="type">Score:</span>
      <span class="value"></span>
+     </div>
    </header>
     <div class= "canvasContainer">   
     <canvas></canvas>
@@ -82,9 +85,6 @@ function gameOverScreenRemove() {
 }
 
 function createWinScreen() {
- // let phrases = ["Hello", "Good boy!", "Happy", "Next", "love"];
-  //let random = phrases[Math.floor(phrases.length * Math.random())];
-
   winScreen = buildDom(`
    <main class= "winScreen" >
       <span class="randomPhrase"></span>
@@ -93,9 +93,6 @@ function createWinScreen() {
    </main>
 
   `);
-
-  //let randomize = winScreen.querySelector(".randomPhrase");
-  //randomize.innerHTML = random;
 
   const restartWinButton = winScreen.querySelector("#restartWinBtn");
   restartWinButton.addEventListener("click", restartGameWin);
@@ -112,8 +109,7 @@ function startGame() {
   removeSplashScreen();
   createGameScreen();
 
-
-  game = new Game()
+  game = new Game();
   game.start();
 }
 

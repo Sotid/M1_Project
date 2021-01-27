@@ -2,11 +2,11 @@
 
 ## Description
 
-Mr. Miyagi loves food. He never stops eating. But he is also very picky. The object of the game is to give him all the food that he likes until he is full and happy. But watch out for the brocoli. He hates it!
+Mr. Miyagi loves food. He never stops eating. But he is also very picky. The object of the game is to give him all the food that he likes until he is full and happy. But watch out for the broccoli. He hates it!
 
 ## MVP (DOM - CANVAS)
 
-A dog that can move in the four directions and has to grab the food that is flooding through the screen from all the sides. Each food add different points except the brocoli that substracts points and has to be avoided. The goal is to reach 50 points so as to win. If the score reaches 0 you loose.
+A dog that can move right and left and has to grab the food that is flooding through the screen. Each food add different points except the brocoli that substracts points and has to be avoided. The goal is to reach 100 points so as to win. If the score reaches 0 you loose.
 
 ## Data structure
 
@@ -46,6 +46,7 @@ A dog that can move in the four directions and has to grab the food that is floo
 - food
 - player
 - gameIsOver
+- gameIsWon
 - gameScreen
 - score
 
@@ -78,20 +79,13 @@ A dog that can move in the four directions and has to grab the food that is floo
 - didCollide
 - Draw
 
-
-
 ### 6. food.js
 
 #### Constructor
 
 - canvas
 - ctx
-- width
-- height
 - x
-- y
-- direction
-- speed
 
 #### Methods
 
@@ -108,8 +102,8 @@ A dog that can move in the four directions and has to grab the food that is floo
 ##### gameScreen
 
 - Score Indicator
-- Game running until the player reaches 0 or 50 points.
-- If player reaches 50 points goes to WinScreen.
+- Game running until the player reaches 0 or 100 points.
+- If player reaches 100 points goes to WinScreen.
 - If players reaches 0 points goes to gameOverScreen.
 
 ##### gameOverScreen
@@ -119,8 +113,7 @@ A dog that can move in the four directions and has to grab the food that is floo
 
 ##### winScreen
 
-- Shows random Win message.
-- Shows score and Restart button.
+- Restart button.
 - Goes back to Game Screen when Restart button is clicked
 
 ## Task
@@ -139,28 +132,25 @@ A dog that can move in the four directions and has to grab the food that is floo
 - Draw the player and the foods
 - Update the setDirection() and didCollide () in the player.js
 - UpdatePosition() and isInsideScreen() in the foods.js
-- Create updateGameStats ()
+- Create updateScore ()
 - Style the background, the buttons and other visual elements
 
 ## Backlog
 
-- Change the perspective of the player depending on the movement
-- Add sound effects
-- Moving images in the splashScreen
-- Moving images in the gameOver and WinScreen
+- Add timer
+- Add scoreboard
 
 ## Links
 
 ### Trello
 
-[Link Trello]https://trello.com/b/lR3QAfX1/mr-miyagis-feast
+[Link Trello]
 
 ### Git
 
-[Link Repo] https://github.com/Sotid/M1_Project/tree/master
-[Link Deploy]
+[https://github.com/Sotid/M1_Project]
+[https://sotid.github.io/M1_Project/]
 
 ### Slides
 
-URls for the project presentation (slides)
-[Link Slides.com]
+[https://docs.google.com/presentation/d/1fWe7zxqHT0ODRsBLKSWEXy0CfyYlT1bzXhslhVYb3w0/edit#slide=id.g6edfa80311_0_37524]

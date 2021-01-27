@@ -6,7 +6,7 @@ class Player {
     this.ctx = canvas.getContext("2d");
     this.size = 130;
     this.x = this.canvas.width / 2;
-    this.y = 540;
+    this.y = 605;
     this.direction = 0;
     this.speed = 4;
   }
@@ -35,7 +35,7 @@ class Player {
     this.img = new Image();
     this.img.src = "/Images/Assets/Left.png";
 
-    this.playerRight ="/Images/Assets/Right.png";
+    this.playerRight = "/Images/Assets/Right.png";
     this.playerLeft = "/Images/Assets/Left.png";
 
     if (this.direction === 1) {
