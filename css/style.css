@@ -42,7 +42,7 @@ canvas {
   height: 96vh;
   border: 2px solid rgb(81, 143, 123);
   display: flex;
-  background-image: url("/Images/Background/gameBackground.png");
+  background-image: url("../Images/Background/gameBackground.png");
   background-repeat: repeat;
   background-size: auto 100%;
 }
@@ -94,7 +94,7 @@ h1 {
 
 .splash::after {
   content: "";
-  background: url("/Images/Background/gameBackground.png");
+  background: url("../Images/Background/gameBackground.png");
   opacity: 0.4;
   top: 0;
   left: 0;
@@ -146,7 +146,7 @@ h1 {
 
 .gameOverScreen::after {
   content: "";
-  background: url("/Images/Background/gameBackground.png");
+  background: url("../Images/Background/gameBackground.png");
   opacity: 0.4;
   top: 0;
   left: 0;
@@ -223,7 +223,7 @@ h1 {
 
 .winScreen::after {
   content: "";
-  background: url("/Images/Background/gameBackground.png");
+  background: url("../Images/Background/gameBackground.png");
   opacity: 0.4;
   top: 0;
   left: 0;

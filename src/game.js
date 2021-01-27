@@ -99,7 +99,7 @@ class Game {
         food.draw();
       });
 
-      // Stop Game if won
+      // Stop Game if won or loose
       if (!this.gameIsWon && !this.gameIsOver) {
         window.requestAnimationFrame(loop);
       }
