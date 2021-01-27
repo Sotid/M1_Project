@@ -46,11 +46,6 @@ function createGameScreen() {
     <div class= "score">
      <span class="type">Score:</span>
      <span class="value"></span>
-    </div>
-    <div class="timer">
-     <span class="typeTimer">Time:</span>
-     <span class="valueTimer"></span>
-    </div>
    </header>
     <div class= "canvasContainer">   
     <canvas></canvas>
@@ -93,7 +88,7 @@ function createWinScreen() {
   winScreen = buildDom(`
    <main class= "winScreen" >
       <span class="randomPhrase"></span>
-      <img src= "../Images/Background/youWon-removebg-preview.png">
+      <img src= "/Images/Background/youWon-removebg-preview.png">
       <button id= "restartWinBtn">Play <span>Again</span></button>
    </main>
 

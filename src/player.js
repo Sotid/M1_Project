@@ -35,8 +35,7 @@ class Player {
     this.img = new Image();
     this.img.src = "/Images/Assets/Left.png";
 
-    this.playerRight =
-      "/Images/Assets/Right.png";
+    this.playerRight ="/Images/Assets/Right.png";
     this.playerLeft = "/Images/Assets/Left.png";
 
     if (this.direction === 1) {

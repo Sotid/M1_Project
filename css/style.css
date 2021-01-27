@@ -100,7 +100,7 @@ h1 {
 
 .splash::after {
   content: "";
-  background: url("../Images/Background/gameBackground.png");
+  background: url("/Images/Background/gameBackground.png");
   opacity: 0.4;
   top: 0;
   left: 0;
@@ -152,7 +152,7 @@ h1 {
 
 .gameOverScreen::after {
   content: "";
-  background: url("../Images/Background/gameBackground.png");
+  background: url("/Images/Background/gameBackground.png");
   opacity: 0.4;
   top: 0;
   left: 0;
