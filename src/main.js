@@ -67,7 +67,7 @@ function removeGameScreen() {
 function createGameOverScreen() {
   gameOverScreen = buildDom(`
    <main class="gameOverScreen">
-      <img src= "/Images/Background/—Pngtree—color pixel gameover game over_5525912.png" /img>
+      <img src= "Images/Background/—Pngtree—color pixel gameover game over_5525912.png" /img>
       <button class="restartBtnLoose"><span>Play</span> Again</button>
    </main>
 
@@ -88,7 +88,7 @@ function createWinScreen() {
   winScreen = buildDom(`
    <main class= "winScreen" >
       <span class="randomPhrase"></span>
-      <img src= "/Images/Background/youWon-removebg-preview.png">
+      <img src= "Images/Background/youWon-removebg-preview.png">
       <button id= "restartWinBtn">Play <span>Again</span></button>
    </main>
 

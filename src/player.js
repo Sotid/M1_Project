@@ -33,10 +33,10 @@ class Player {
 
   draw() {
     this.img = new Image();
-    this.img.src = "/Images/Assets/Left.png";
+    this.img.src = "Images/Assets/Left.png";
 
-    this.playerRight = "/Images/Assets/Right.png";
-    this.playerLeft = "/Images/Assets/Left.png";
+    this.playerRight = "Images/Assets/Right.png";
+    this.playerLeft = "Images/Assets/Left.png";
 
     if (this.direction === 1) {
       this.img.src = this.playerRight;
