@@ -17,7 +17,7 @@ function createSplashScreen() {
   splashScreen = buildDom(`
   <main class="splash">
   <audio autoplay="true">
-	<source src="Images/Sounds/Insert-Quarter.mp3">
+	<source src="/Images/Sounds/Insert-Quarter.mp3">
 </audio>
   <h1>Mr. Miyagi's dream</h1>
    <button class= "startBtn">I am hungry!</button>
