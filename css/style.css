@@ -23,7 +23,7 @@ p {
 
 html,
 body {
-  height: 120vh;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -35,7 +35,8 @@ body {
 }
 
 audio { 
-  display:none;}
+  display:none;
+}
 
 canvas {
   width: 100vw;
@@ -49,7 +50,7 @@ canvas {
 
 .canvasContainer {
   width: 100vw;
-  height: 94vh;
+  height: 96vh;
 }
 
 #game {
