@@ -13,7 +13,9 @@ class Game {
     this.scoreElement = undefined;
     this.gameIsWonSound = new Audio("Images/Sounds/GameOverWin.wav");
     this.gameIsLostSound = new Audio("Images/Sounds/GameOverLoose.wav");
-    
+    this.timerElement = 0;
+    this.timeLeft = 30;
+    this.timerId = 0;
   }
 
   start() {
@@ -26,6 +28,7 @@ class Game {
     this.canvas.setAttribute("height", this.containerHeight);
 
     this.scoreElement = document.querySelector(".score .value");
+    this.timerElement = document.querySelector(".valueTimer");
 
     this.player = new Player(this.canvas);
     this.player.draw();
@@ -43,11 +46,14 @@ class Game {
     document.body.addEventListener("keydown", boundHandleKeyDown);
 
     this.startLoop();
+    this.printTime();
+    setInterval(printTime, 1000);
   }
 
   startLoop() {
     const loop = function () {
       this.updateScore();
+      // this.printTime()
 
       // Foods
       if (Math.random() > 0.96) {
@@ -125,7 +131,7 @@ class Game {
           food.brocoliSound.play();
         }
 
-        if (this.score > 100) {
+        if (this.timeLeft === 0) {
           this.gameOverWin();
           this.gameIsWon = true;
           this.gameIsWonSound.play();
@@ -152,5 +158,16 @@ class Game {
 
   updateScore() {
     this.scoreElement.textContent = this.score;
+  }
+
+  printTime() {
+    setInterval(() => {
+      if (this.timeLeft == -1) {
+        clearTimeout(timeLeft);
+      } else {
+        this.timerElement.innerHTML = this.timeLeft;
+        this.timeLeft--;
+      }
+    }, 1000);
   }
 }

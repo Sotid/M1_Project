@@ -238,7 +238,7 @@ h1 {
   color: #946a77;
   font-size: 1.8em;
   font-family: American Typewriter, serif;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .score .type {
@@ -246,18 +246,31 @@ h1 {
   font-size: 2em;
   font-family: American Typewriter, serif;
   font-weight: 500;
+ 
 }
 
-.timer .typeTimer {
+.score{
+  float: left;
+  padding-left: 200px;
+}
+
+.timer{
+  float:right;
+  padding-right: 200px;
+}
+.timer .timerType{
   color: #946a77;
   font-size: 2em;
   font-family: American Typewriter, serif;
-  font-weight: 500;
+  font-weight: 400;
+
 }
 
 .timer .valueTimer {
-  color: #946a77;
+  color: #05386b;
   font-size: 1.8em;
   font-family: American Typewriter, serif;
-  font-weight: 400;
+  font-weight: 600;
 }
+
+

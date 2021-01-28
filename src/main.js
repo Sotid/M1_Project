@@ -49,6 +49,10 @@ function createGameScreen() {
      <span class="type">Score:</span>
      <span class="value"></span>
      </div>
+     <div class= "timer">
+     <span class="timerType">Time:</span>
+     <span class="valueTimer"></span>
+     </div>
    </header>
     <div class= "canvasContainer">   
     <canvas></canvas>
